@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="header">
+    <h1>Cambio de moneda</h1>
+    <input type="number" [(ngModel)]="number">
+    <p>Actual exchange rate: {{selectedRate}}</p>
+  </div>
+  <div class="card-container">
+    <div class="card" *ngFor="let data of datas | keyvalue" (click)="updateRates(data.key)" [ngClass]="isSelected == true && selectedRate == data.key ? 'selected' : ''">
+      <h2>{{data.key}}</h2>
+      <p class="rate">{{data.value}}</p>
+      <p class="result">{{number * data.value}}</p>
+    </div>
+  </div>
+</div>
+
